@@ -5,14 +5,15 @@
 
 CSVReader::CSVReader()
 {
-
 }
 
 std::vector<OrderBookEntry> CSVReader::readCSV(std::string csvFilename)
 {
+    // create a vector of OrderBookEntry
     std::vector<OrderBookEntry> entries;
-
+    //std::cout << "Reading file " << csvFilename << std::endl;
     std::ifstream csvFile{csvFilename};
+    // check if the file is open
     std::string line;
     if (csvFile.is_open())
     {
@@ -85,6 +86,7 @@ OrderBookEntry CSVReader::stringsToOBE(std::string priceString,
                                     std::string product, 
                                     OrderBookType orderType)
 {
+    // convert the strings to doubles
     double price, amount;
     try {
          price = std::stod(priceString);
